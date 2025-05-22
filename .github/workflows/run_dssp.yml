@@ -20,7 +20,7 @@ jobs:
         run: |
           which mkdssp
           mkdssp --version
-          mkdssp < seed3.pdb > output.dssp
+          mkdssp seed3.pdb output.dssp
 
       - name: Upload DSSP output
         uses: actions/upload-artifact@v4
