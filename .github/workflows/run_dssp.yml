@@ -16,7 +16,7 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y dssp
 
       - name: Run DSSP
-        run: mkdssp -i my_protein.pdb -o output.dssp
+        run: mkdssp -i test_9db52_0_unrelaxed_rank_001_alphafold2_ptm_model_3_seed_000.pdb -o output.dssp
 
       - name: Upload DSSP output
         uses: actions/upload-artifact@v3
