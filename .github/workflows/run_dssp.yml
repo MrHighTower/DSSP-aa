@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - '**.pdb'
+  workflow_dispatch:
 
 jobs:
   dssp-job:
