@@ -1,0 +1,25 @@
+name: Run DSSP on uploaded PDB file
+
+on:
+  push:
+    paths:
+      - '**.pdb'
+
+jobs:
+  dssp-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install DSSP
+        run: sudo apt-get update && sudo apt-get install -y dssp
+
+      - name: Run DSSP
+        run: mkdssp -i my_protein.pdb -o output.dssp
+
+      - name: Upload DSSP output
+        uses: actions/upload-artifact@v3
+        with:
+          name: dssp-output
+          path: output.dssp
