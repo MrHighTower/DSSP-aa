@@ -19,7 +19,7 @@ jobs:
       - name: Add HEADER line to PDB and run DSSP
         run: |
           echo 'HEADER    ALPHAFOLD MODEL                         01-JAN-00   SEED3' > fixed.pdb
-          tail -n +2 seed3 >> fixed.pdb
+          tail -n +2 seed3.pdb >> fixed.pdb
           mkdssp fixed.pdb output.dssp
 
 
