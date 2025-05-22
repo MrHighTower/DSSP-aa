@@ -16,11 +16,12 @@ jobs:
       - name: Install DSSP
         run: sudo apt-get update && sudo apt-get install -y dssp
 
-      - name: Run DSSP
+      - name: Add HEADER line to PDB and run DSSP
         run: |
-          which mkdssp
-          mkdssp --version
-          mkdssp seed3.pdb output.dssp
+          echo 'HEADER    ALPHAFOLD MODEL                         01-JAN-00   SEED3' > fixed.pdb
+          tail -n +2 seed3 >> fixed.pdb
+          mkdssp fixed.pdb output.dssp
+
 
       - name: Upload DSSP output
         uses: actions/upload-artifact@v4
